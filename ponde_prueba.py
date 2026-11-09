@@ -4,7 +4,7 @@ import os
 
 def menu():
     while True:
-        print("\n---- CALCULADORA PONDERACIONES TEST 1.1 ----")
+        print("\n---- CALCULADORA PONDERACIONES TEST 1..2 ----")
         
         print("\nPulsa 1 para calcular ponderacion notas")
         print(" ")
