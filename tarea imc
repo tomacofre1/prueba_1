@@ -1,0 +1,65 @@
+#calcular el imc de un paciente conociendo los sgtes.datos:
+#paciente - edad (10 - 99)- sexo (F/M) -peso kg(mayor a cero) - altura en mts 1.2
+# imc= peso / altura*altura  o altura elevado 2
+
+import os
+while True:
+
+    paciente = input("Ingrese nombre del paciente: ")
+    while True:
+        edad = int(input("Ingrese edad del paciente (entre 10 y 99 ): "))
+        if edad >= 10 and edad <= 99:
+            break
+        else:
+            print("Ingrese una edad entre 10 y 99 porfavor")
+    while True:
+        sexo = str.upper(input("Ingrese su sexo, [F]para femenino // [M] para masculino: "))
+        if sexo == "F" or sexo == "M":
+            break
+            
+        else:
+            print("Ingrese un sexo correcto porfavor (F/M): ")
+    if sexo == "F":
+        sexop = "Femenino"
+    elif sexo == "M":
+        sexop = "Masculino"
+    else:
+        print("No reconoce sexo")
+    while True:
+        peso = int(input("Ingrese su peso en kg: "))
+        if peso > 0:
+            break
+        else:
+            print("Ingrese un peso positivo: ")
+    altura = float(input("Ingrese su altura (ejemplo 1.82): "))
+
+    imc = peso / (altura ** 2)
+    if imc < 18.5:
+        imct = "Bajo peso"
+    elif imc >= 18.5 and imc <= 24.9:
+        imct = "Saludable"
+    elif imc >= 25 and imc <= 29.9:
+        imct = "Sobrepeso"
+    else:
+        imct = "Obesidad"
+
+    print(f"---------\nEl paciente {paciente} de sexo {sexop}\nTiene {edad} años\nPesa {peso} y mide {altura:.2f} cms\nSu imc es de {imc:.2f} y su condicion es de {imct}\n---------")
+
+    seguir = input("Presione 1 para ingresar otro paciente: ")
+    if seguir == "1":
+        os.system("cls")
+        
+    else:
+        print("Adios")
+        break
+
+
+
+
+    
+
+
+
+
+    
+    

@@ -1,0 +1,37 @@
+from datetime import datetime, date
+import os
+c = 0
+while c < 3: 
+    #fecha siempre con / porque con guion genera error
+    fecha_nac = str(input("Ingrese fecha de nacimiento (DD/MM/YYYY)\n"))
+    #aca la libreria indica string parse a time
+    #aca usamos la Y mayuscula para indicarle que año es completo no solo los ultimos digitos
+    fecha_nac_obj = datetime.strptime(fecha_nac,"%d/%m/%Y").date()
+    #el punto day sacamos el dia de fecha de nacimiento
+    dia_fecha_nac = fecha_nac_obj.day
+    mes_fecha_nac = fecha_nac_obj.month
+    ano_nacimiento = fecha_nac_obj.year
+    dia_semana_fecha = fecha_nac_obj.weekday()
+    hoy = date.today()
+
+    dias_nacimiento = (hoy - fecha_nac_obj).days
+    edad = int(dias_nacimiento / 365.25)
+    #los dias de la semana donde lunes es 0 
+    if dia_semana_fecha == 0:
+        dia_semana = "Lunes"
+    elif dia_semana_fecha == 1:
+        dia_semana = "Martes"
+    elif dia_semana_fecha == 2:
+        dia_semana = "Miercoles"
+    elif dia_semana_fecha == 3:
+        dia_semana = "Jueves"
+    elif dia_semana_fecha == 4:
+        dia_semana = "Viernes"
+    elif dia_semana_fecha == 5:
+        dia_semana = "Sábado"
+    else:
+        dia_semana = "Domingo"
+
+    print (f"El dia de nacimiento {dia_fecha_nac} \n El mes de nacimiento : {mes_fecha_nac} \n El año de nacimiento: {ano_nacimiento} \n El dia de semana es: {dia_semana} \n Tu edad es: {edad}")
+    c += 1
+    os.system("pause")
